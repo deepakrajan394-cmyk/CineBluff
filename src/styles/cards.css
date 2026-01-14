@@ -1,0 +1,122 @@
+.movie-grid {
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.hover-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: visible; 
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.hover-card:hover {
+  transform: scale(1.06);
+  z-index: 20;
+}
+
+.poster {
+  width: 100%;
+  border-radius: var(--radius);
+  display: block;
+  object-fit: cover;
+}
+
+
+.position-anchor {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  width: 100%;
+}
+
+
+.hover-info-card {
+  position: absolute;
+  left: 50%;
+  width: 260px;
+  background: rgba(255, 255, 255, 0.12); 
+  border-radius: 14px;
+  padding: 18px;
+  backdrop-filter: blur(18px);           
+  -webkit-backdrop-filter: blur(18px);   
+
+  border: 1px solid rgba(255, 255, 255, 0.18); 
+  box-shadow: 0 6px 24px rgba(0,0,0,0.45);     
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+
+.hover-card:hover .hover-info-card {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.hover-info-card.top {
+  top: -10px;
+  transform: translate(-50%, -100%) scale(0.9);
+}
+.hover-card:hover .hover-info-card.top {
+  transform: translate(-50%, -105%) scale(1);
+}
+
+.hover-info-card.bottom {
+  top: 100%;
+  transform: translate(-50%, 10%) scale(0.9);
+}
+.hover-card:hover .hover-info-card.bottom {
+  transform: translate(-50%, 5%) scale(1);
+}
+
+.hover-info-card .title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--headline);
+}
+
+.meta {
+  font-size: 13px;
+  margin-bottom: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.meta span {
+  color: var(--accent);
+}
+
+.overview {
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--text);
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.overview::-webkit-scrollbar {
+  width: 4px;
+}
+.overview::-webkit-scrollbar-thumb {
+  background: var(--accent2);
+  border-radius: 8px;
+}
+.overview::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 600px) {
+  .hover-card:hover {
+    transform: none;
+  }
+}
+
